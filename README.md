@@ -33,8 +33,8 @@ Before you start, download the following and place in the collection folder http
 
 **Select Profile:**
 - **Quick Triage** (2-5 min): Essential artifacts for rapid assessment
-- **Standard** (5-15 min): Comprehensive collection ⭐ **Recommended**
-- **Comprehensive** (15-30 min): Everything including MFT/USN/Memory
+- **Standard** (5-15 min): Comprehensive collection 
+- **Comprehensive** (15-30 min): Everything including MFT/USN/Memory ⭐ **Recommended**
 
 **Output:** `C:\Triage_HOSTNAME_YYYYMMDD_HHMMSS\`
 
