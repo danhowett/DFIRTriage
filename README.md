@@ -54,7 +54,7 @@ Before you start, download the following and place in the collection folder http
 
 ```bash
 # On analysis workstation
-python ransomware_investigator_ENHANCED.py -d "C:\Triage_HOSTNAME_YYYYMMDD_HHMMSS"
+python ransomware_investigator.py -d "C:\Triage_HOSTNAME_YYYYMMDD_HHMMSS"
 ```
 
 **Output:** `C:\Triage_HOSTNAME_YYYYMMDD_HHMMSS\Analysis_Output\`
@@ -338,7 +338,7 @@ Command likely used: vssadmin delete shadows /all /quiet
 **Setup:**
 ```bash
 # No pip install needed - pure Python!
-python ransomware_investigator_ENHANCED.py -d <path>
+python ransomware_investigator.py -d <path>
 ```
 
 ---
@@ -393,13 +393,13 @@ python ransomware_investigator_ENHANCED.py -d <path>
 
 ```bash
 # Basic usage
-python ransomware_investigator_ENHANCED.py -d "C:\Triage_HOST_DATE"
+python ransomware_investigator.py -d "C:\Triage_HOST_DATE"
 
 # Use custom threat indicators
-python ransomware_investigator_ENHANCED.py -d "C:\Triage_HOST_DATE" -i custom_indicators.json
+python ransomware_investigator.py -d "C:\Triage_HOST_DATE" -i custom_indicators.json
 
 # Help
-python ransomware_investigator_ENHANCED.py --help
+python ransomware_investigator.py --help
 ```
 
 **Analysis Output:**
@@ -738,7 +738,7 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 - Verify CSV files were created
 
 **HTML report doesn't look modern**
-- Ensure using ransomware_investigator_ENHANCED.py
+- Ensure using ransomware_investigator.py
 - Delete old Investigation_Report.html
 - Re-run analysis
 - Hard refresh browser (Ctrl+F5)
@@ -752,7 +752,7 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 **Python version errors**
 - Ensure Python 3.7 or later
 - Try `python3` instead of `python`
-- On Windows: `py -3 ransomware_investigator_ENHANCED.py -d <path>`
+- On Windows: `py -3 ransomware_investigator.py -d <path>`
 
 ---
 
@@ -805,7 +805,7 @@ Created by Danny Howett and Claude.ai - with thanks to https://github.com/jschic
 ```
 ✓ triage-collection.ps1       (Collection)
 ✓ evtx_to_csv.ps1                      (Event log parsing)
-✓ ransomware_investigator_ENHANCED.py  (Analysis)
+✓ ransomware_investigator.py  (Analysis)
 ✓ threat_indicators.json               (IOC database)
 ✓ RawCopy64.exe                        (For locked files - optional)
 ```
@@ -814,7 +814,7 @@ Created by Danny Howett and Claude.ai - with thanks to https://github.com/jschic
 ```
 1. Collect → .\triage-collection.ps1
 2. Parse   → .\evtx_to_csv.ps1 -TriageDirectory <path>
-3. Analyze → python ransomware_investigator_ENHANCED.py -d <path>
+3. Analyze → python ransomware_investigator.py -d <path>
 4. Review  → Open Investigation_Report.html
 ```
 
