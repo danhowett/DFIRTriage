@@ -795,15 +795,7 @@ MIT License - See LICENSE file
 
 ## 🙏 **Credits**
 
-Created for DFIR practitioners by DFIR practitioners.
-
-**Special thanks to:**
-- The DFIR community for sharing threat intelligence
-- Eric Zimmerman for DFIR tool inspiration and RawCopy
-- SANS DFIR community
-- ATT&CK framework contributors
-- Belkasoft for RamCapture
-- Sysinternals team for handle.exe
+Created by Danny Howett and Claude.ai - with thanks to https://github.com/jschicht/RawCopy for RawCopy and Belkasoft https://belkasoft.com/ram-capturer for Belkasoft Ram Capturer
 
 ---
 
