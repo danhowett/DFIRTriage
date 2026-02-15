@@ -1,0 +1,218 @@
+{
+  "ransomware_extensions": [
+    ".locked", ".encrypted", ".crypto", ".crypt", ".locky", ".zepto",
+    ".cerber", ".wannacry", ".wncry", ".wcry", ".cryptolocker",
+    ".vault", ".exx", ".ezz", ".ecc", ".dharma", ".wallet",
+    ".ryk", ".ryuk", ".conti", ".lockbit", ".maze", ".revil", ".sodinokibi",
+    ".stop", ".djvu", ".phobos", ".makop", ".blackcat", ".alphv",
+    ".hive", ".quantum", ".royal", ".play", ".nokoyawa", ".trigona",
+    ".ragnar", ".babuk", ".darkside", ".avaddon", ".cuba", ".grief",
+    ".prometheus", ".nefilim", ".pysa", ".mespinoza", ".eking", ".netwalker",
+    ".snatch", ".mount", ".lorenz", ".Vice", ".clop", ".akira"
+  ],
+  
+  "ransomware_notes": [
+    "README.txt", "DECRYPT.txt", "HOW_TO_DECRYPT.txt", "RECOVERY.txt",
+    "FILES_ENCRYPTED.txt", "YOUR_FILES_ARE_ENCRYPTED.txt",
+    "RESTORE_FILES.txt", "HELP_DECRYPT.txt", "HOW_TO_RECOVER_FILES.txt",
+    "!!! READ ME !!!.txt", "!!! ALL YOUR FILES ARE ENCRYPTED !!!.txt",
+    "READ_IT.txt", "ATTENTION.txt", "WARNING.txt", "IMPORTANT.txt",
+    "Restore-My-Files.txt", "How_to_back_files.html", "Recovery.html"
+  ],
+  
+  "suspicious_processes": {
+    "credential_theft": [
+      "mimikatz.exe", "pypykatz", "procdump.exe", "procdump64.exe",
+      "dumpert.exe", "nanodump.exe", "masky.exe", "lsassy",
+      "secretsdump.py", "lazagne.exe", "rdpthief.exe", "sharphound.exe",
+      "rubeus.exe", "kekeo.exe", "safetykatz.exe", "sharpkatz.exe"
+    ],
+    "lateral_movement": [
+      "psexec.exe", "psexec64.exe", "paexec.exe", "winexe",
+      "wmiexec.py", "dcomexec.py", "smbexec.py", "atexec.py",
+      "impacket", "crackmapexec", "evil-winrm", "winrm.exe"
+    ],
+    "c2_frameworks": [
+      "cobalt", "beacon.exe", "cobaltstrike", "meterpreter",
+      "empire", "covenant", "metasploit", "powersploit",
+      "sharpshooter", "donut", "sliver", "mythic", "havoc",
+      "brute.exe", "cs.exe", "artifact.exe"
+    ],
+    "ransomware_tools": [
+      "vssadmin.exe", "wbadmin.exe", "bcdedit.exe", "cipher.exe",
+      "sdelete.exe", "sdelete64.exe", "wevtutil.exe", "fsutil.exe",
+      "bootcfg.exe", "diskshadow.exe"
+    ],
+    "network_scanners": [
+      "nmap.exe", "masscan.exe", "angry_ip_scanner", "advanced_port_scanner",
+      "nbtscan.exe", "arp-scan", "sharphound", "bloodhound",
+      "powerview", "adrecon", "pingcastle"
+    ],
+    "data_exfiltration": [
+      "rclone.exe", "megasync.exe", "7z.exe", "7za.exe", "winrar.exe",
+      "filezilla.exe", "winscp.exe", "putty.exe", "plink.exe",
+      "curl.exe", "wget.exe", "certutil.exe", "bitsadmin.exe"
+    ]
+  },
+  
+  "suspicious_commands": {
+    "shadow_copy_deletion": [
+      "vssadmin delete shadows",
+      "vssadmin.exe Delete Shadows /All /Quiet",
+      "wmic shadowcopy delete",
+      "wbadmin delete catalog",
+      "wbadmin delete systemstatebackup",
+      "wbadmin delete backup",
+      "Get-WmiObject.*Win32_Shadowcopy.*Delete"
+    ],
+    "boot_configuration": [
+      "bcdedit /set {default} recoveryenabled no",
+      "bcdedit /set {default} bootstatuspolicy ignoreallfailures",
+      "bcdedit.exe /set {current} bootstatuspolicy ignoreallfailures",
+      "bcdedit.exe /set {current} recoveryenabled no"
+    ],
+    "event_log_clearing": [
+      "wevtutil cl",
+      "wevtutil clear-log",
+      "Clear-EventLog",
+      "Remove-EventLog"
+    ],
+    "defender_tampering": [
+      "Set-MpPreference -DisableRealtimeMonitoring",
+      "Set-MpPreference.*DisableIOAVProtection",
+      "Set-MpPreference.*DisableBehaviorMonitoring",
+      "reg add.*DisableAntiSpyware",
+      "sc stop WinDefend",
+      "sc delete WinDefend"
+    ],
+    "credential_dumping": [
+      "sekurlsa::logonpasswords",
+      "lsadump::sam",
+      "lsadump::secrets",
+      "procdump.*lsass",
+      "comsvcs.dll.*MiniDump",
+      "reg save.*sam",
+      "reg save.*system",
+      "reg save.*security"
+    ],
+    "encoded_commands": [
+      "powershell.*-encodedcommand",
+      "powershell.*-enc",
+      "powershell.*-e ",
+      "cmd.exe /c echo.*^|powershell",
+      "IEX.*New-Object.*Net.WebClient.*DownloadString"
+    ],
+    "lateral_movement": [
+      "\\\\\\\\.*\\\\admin$",
+      "\\\\\\\\.*\\\\c$",
+      "net use.*\\\\admin$",
+      "wmic.*node:",
+      "Invoke-Command -ComputerName",
+      "Enter-PSSession"
+    ],
+    "persistence": [
+      "schtasks /create",
+      "New-ScheduledTask",
+      "reg add.*\\\\Run",
+      "reg add.*\\\\RunOnce",
+      "Set-WMIInstance.*__EventFilter",
+      "sc create",
+      "New-Service"
+    ]
+  },
+  
+  "suspicious_registry_keys": [
+    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce",
+    "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+    "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce",
+    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run",
+    "HKCU\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Shell",
+    "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Userinit",
+    "HKLM\\SYSTEM\\CurrentControlSet\\Services"
+  ],
+  
+  "suspicious_file_locations": [
+    "C:\\Users\\Public",
+    "C:\\ProgramData",
+    "C:\\Windows\\Temp",
+    "C:\\Temp",
+    "%APPDATA%\\Roaming",
+    "%LOCALAPPDATA%\\Temp",
+    "C:\\Users\\*\\AppData\\Local\\Temp",
+    "C:\\Windows\\System32\\Tasks",
+    "C:\\Windows\\Tasks"
+  ],
+  
+  "living_off_the_land_binaries": [
+    "powershell.exe", "cmd.exe", "wmic.exe", "rundll32.exe",
+    "regsvr32.exe", "mshta.exe", "certutil.exe", "bitsadmin.exe",
+    "wscript.exe", "cscript.exe", "regasm.exe", "regsvcs.exe",
+    "installutil.exe", "msbuild.exe", "csc.exe", "vbc.exe"
+  ],
+  
+  "network_indicators": {
+    "tor_exit_nodes": [],
+    "known_c2_ports": [
+      4444, 8080, 8443, 1337, 31337, 50050, 443, 80
+    ],
+    "suspicious_dns_queries": [
+      "*.onion", "*.bit", "*.i2p", 
+      "pastebin.com", "hastebin.com", "ghostbin.co",
+      "discord.com/api/webhooks", "api.telegram.org"
+    ]
+  },
+  
+  "event_ids": {
+    "critical": {
+      "4720": "User Account Created",
+      "4722": "User Account Enabled",
+      "4724": "Password Reset Attempt",
+      "4732": "User Added to Privileged Group",
+      "4728": "User Added to Global Group",
+      "4756": "User Added to Universal Group",
+      "7045": "Service Installed",
+      "4688": "Process Created",
+      "4698": "Scheduled Task Created",
+      "4104": "PowerShell Script Block",
+      "1102": "Audit Log Cleared"
+    },
+    "lateral_movement": {
+      "4624": "Successful Logon (Type 3, 10)",
+      "4625": "Failed Logon",
+      "4648": "Explicit Credential Logon",
+      "4672": "Special Privileges Assigned",
+      "5140": "Network Share Accessed",
+      "5145": "Network Share Access Check"
+    },
+    "defense_evasion": {
+      "4657": "Registry Value Modified",
+      "4663": "File Access Attempt",
+      "1": "Sysmon - Process Creation",
+      "3": "Sysmon - Network Connection",
+      "7": "Sysmon - Image Loaded",
+      "8": "Sysmon - CreateRemoteThread",
+      "10": "Sysmon - Process Access"
+    }
+  },
+  
+  "prefetch_indicators": [
+    "VSSADMIN.EXE", "WBADMIN.EXE", "BCDEDIT.EXE", "WEVTUTIL.EXE",
+    "POWERSHELL.EXE", "CMD.EXE", "PSEXEC.EXE", "PSEXEC64.EXE",
+    "MIMIKATZ.EXE", "PROCDUMP.EXE", "PROCDUMP64.EXE",
+    "RUNDLL32.EXE", "REGSVR32.EXE", "MSHTA.EXE", "CERTUTIL.EXE",
+    "7Z.EXE", "7ZA.EXE", "WINRAR.EXE", "RCLONE.EXE"
+  ],
+  
+  "suspicious_scheduled_tasks": [
+    "\\Microsoft\\Windows\\Wininet\\CacheTask",
+    "\\Microsoft\\Windows\\AppID\\VerifiedPublisherCertStoreCheck",
+    "At1", "At2", "Updates\\",
+    "GoogleUpdate", "Adobe", "Microsoft"
+  ],
+  
+  "suspicious_services": [
+    "PSEXESVC", "PAExec", "RemoteExec", "WinRM",
+    "TermService", "RemoteRegistry", "RemoteAccess"
+  ]
+}
