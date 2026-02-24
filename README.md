@@ -1,4 +1,4 @@
-# Complete DFIR Triage & Investigation Toolkit
+# DFIR Triage & Investigation Toolkit
 
 A comprehensive, automated digital forensics and incident response (DFIR) toolkit for detecting financially motivated threat actors including ransomware, credential theft, and data exfiltration.
 
